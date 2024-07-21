@@ -2,19 +2,19 @@
  So, Next or at the top of every step and function you will see the comment explaining the purpose of each step and function. 
 */
 
-// The wait for the DOM to fully load before executing the script
+// The wait for the DOM to fully load before running the script
 document.addEventListener('DOMContentLoaded', function() {
-    // To Select the necessary DOM elements
+    // To select the necessary DOM elements
     const addButton = document.getElementById('add-task-btn');
     const taskInput = document.getElementById('task-input');
     const taskList = document.getElementById('task-list');
 
     // The function to add a new task
     function addTask() {
-        //To retrieve and trim the input value
+        // To retrieve and trim the input value
         const taskText = taskInput.value.trim();
 
-        // T0 check if the input is not empty
+        //To check if the input is not empty
         if (taskText === '') {
             alert('Please enter a task.');
             return; // Exit the function if the input is empty
@@ -27,17 +27,17 @@ document.addEventListener('DOMContentLoaded', function() {
         // To create a new remove button
         const removeButton = document.createElement('button');
         removeButton.textContent = 'Remove';
-        removeButton.className = 'remove-btn';
+        removeButton.className = 'remove-btn'; // Assign class name directly
 
-        // T0 assign an onclick event to the remove button
-        removeButton.addEventListener('click', function() {
+        // To assign an onclick event to the remove button
+        removeButton.onclick = function() {
             taskList.removeChild(newTask); // Remove the li element from taskList
-        });
+        };
 
-        // Appended button to remove the list item (li)
+        // The remove button appended to the list item (li)
         newTask.appendChild(removeButton);
 
-        // Appended list item (li) to the task list
+        // The list item (li) appended  to the task list
         taskList.appendChild(newTask);
 
         // To clear the task input field
